@@ -32,7 +32,7 @@ namespace WindowsFormsAPIClient
                 {
                     requestWriter.Write(req);
                     var content = new StringContent(requestWriter.ToString(), System.Text.Encoding.UTF8, "application/json");
-                    vClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", token);
+                    vClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
                     var responseMessage = this.vClient.PostAsync(requestUri, content).Result;
                     responseMessage.EnsureSuccessStatusCode();
                     var stream = responseMessage.Content.ReadAsStreamAsync().Result;
