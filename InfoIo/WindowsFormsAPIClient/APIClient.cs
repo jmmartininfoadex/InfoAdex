@@ -95,16 +95,12 @@ namespace WindowsFormsAPIClient
                 var responseAPI = vClient.GetAsync(builder.ToString()).Result;
                 if (responseAPI.IsSuccessStatusCode)
                 {
-                    //var response = await responseAPI.Content.ReadAsStringAsync();
-                    //ret = JsonConvert.DeserializeObject<User>(response);
                     ret = (StreamContent)responseAPI.Content;
                 }
                 else
                 {
-                    throw new Exception("Error al recuperar los datos del usuario (" + responseAPI.StatusCode.ToString() + ")");
+                    throw new Exception("Error al recuperar la creatividad (" + responseAPI.StatusCode.ToString() + ")");
                 }
-
-
             }
             catch (Exception ex)
             {
