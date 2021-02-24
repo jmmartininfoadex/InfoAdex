@@ -36,6 +36,7 @@
             this.btnConsulta = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.txtResults = new System.Windows.Forms.TextBox();
+            this.btnCreatives = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnToken
@@ -63,7 +64,7 @@
             this.txtEndPoint.Name = "txtEndPoint";
             this.txtEndPoint.Size = new System.Drawing.Size(436, 20);
             this.txtEndPoint.TabIndex = 2;
-            this.txtEndPoint.Text = "http://localhost:57150/v1_0/";
+            this.txtEndPoint.Text = "http://infoio.infoadex.es/infoioapi/v1.1/";
             // 
             // btnVariables
             // 
@@ -113,11 +114,22 @@
             this.txtResults.Size = new System.Drawing.Size(436, 334);
             this.txtResults.TabIndex = 7;
             // 
+            // btnCreatives
+            // 
+            this.btnCreatives.Location = new System.Drawing.Point(68, 275);
+            this.btnCreatives.Name = "btnCreatives";
+            this.btnCreatives.Size = new System.Drawing.Size(181, 36);
+            this.btnCreatives.TabIndex = 8;
+            this.btnCreatives.Text = "getFile";
+            this.btnCreatives.UseVisualStyleBackColor = true;
+            this.btnCreatives.Click += new System.EventHandler(this.btnCreatives_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnCreatives);
             this.Controls.Add(this.txtResults);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnConsulta);
@@ -143,6 +155,7 @@
         private System.Windows.Forms.Button btnConsulta;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtResults;
+        private System.Windows.Forms.Button btnCreatives;
     }
 }
 

@@ -13,6 +13,7 @@ namespace WindowsFormsAPIClient
     public partial class Form1 : Form
     {
 
+        string creativestoken = "";
         string token = "";
 
         public Form1()
@@ -39,6 +40,22 @@ namespace WindowsFormsAPIClient
                     txtResults.Text += result.Data.Columns[i].ColumnName + ": " + row[i].ToString() + System.Environment.NewLine;
                 }
                 txtResults.Text += (result.Data.Rows.Count - 1).ToString() + " filas más ...";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error. " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            this.Cursor = Cursors.Default;
+        }
+
+        private void btnCreatives_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            try
+            {
+                APIClient api = new APIClient(txtEndPoint.Text);
+                var result = api.getCreatives(creativestoken, "SUPLEM. Y DOMINICALES", "3212664");
+                txtResults.Text = result.Headers.ContentLength.ToString() + " bytes recibidos";
             }
             catch (Exception ex)
             {
@@ -82,7 +99,8 @@ namespace WindowsFormsAPIClient
                 req.UserName = "username";
                 req.Password = "base64encodedpassword";
                 AuthToken tk = api.getAuthToken(req);
-                txtResults.Text = "Token: " + tk.Token + System.Environment.NewLine + "Expires: " + tk.Expires;
+                txtResults.Text = "Creatives Token: " + tk.creatives_Token + System.Environment.NewLine +  "Token: " + tk.Token + System.Environment.NewLine + "Expires: " + tk.Expires;
+                creativestoken = tk.creatives_Token;
                 token = tk.Token;
             }
             catch (Exception ex)

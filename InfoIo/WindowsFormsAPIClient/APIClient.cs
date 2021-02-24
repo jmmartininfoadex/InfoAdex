@@ -78,6 +78,41 @@ namespace WindowsFormsAPIClient
             return ret;
         }
 
+        public StreamContent getCreatives(string token, string medio, string codigo)
+        {
+            StreamContent ret = null;
+            try
+            {
+                StringBuilder builder = new StringBuilder();
+                builder.Append(vClient.BaseAddress);
+                builder.Append("creatives/getFile?");
+                builder.Append("access_token=");
+                builder.Append(token);
+                builder.Append("&med=");
+                builder.Append(System.Web.HttpUtility.UrlEncode(medio));
+                builder.Append("&cod=");
+                builder.Append(codigo);
+                var responseAPI = vClient.GetAsync(builder.ToString()).Result;
+                if (responseAPI.IsSuccessStatusCode)
+                {
+                    //var response = await responseAPI.Content.ReadAsStringAsync();
+                    //ret = JsonConvert.DeserializeObject<User>(response);
+                    ret = (StreamContent)responseAPI.Content;
+                }
+                else
+                {
+                    throw new Exception("Error al recuperar los datos del usuario (" + responseAPI.StatusCode.ToString() + ")");
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return ret;
+        }
+
         public VariableFiltro getFilterValues(Filter_Request req, string token)
         {
             VariableFiltro ret = null;
@@ -89,7 +124,7 @@ namespace WindowsFormsAPIClient
                     var requestSerializer = JsonSerializer.Create();
                     requestSerializer.Serialize(requestWriter, req);
                     var content = new StringContent(requestWriter.ToString(), System.Text.Encoding.UTF8, "application/json");
-                    vClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", token);
+                    vClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
                     var responseMessage = this.vClient.PostAsync(requestUri, content).Result;
                     responseMessage.EnsureSuccessStatusCode();
                     var stream = responseMessage.Content.ReadAsStreamAsync().Result;
@@ -115,7 +150,7 @@ namespace WindowsFormsAPIClient
                 var requestUri = new Uri(vClient.BaseAddress, "Query/getVariables");
                 using (var requestWriter = new System.IO.StringWriter())
                 {
-                    vClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", token);
+                    vClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
                     var responseMessage = this.vClient.PostAsync(requestUri, null).Result;
                     responseMessage.EnsureSuccessStatusCode();
                     var stream = responseMessage.Content.ReadAsStreamAsync().Result;
