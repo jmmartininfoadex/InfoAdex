@@ -10,3 +10,4 @@ Los ejemplos se facilitan en dos lenguajes diferentes:
 
 * [C#](/InfoIo/WindowsFormsAPIClient) - aplicación de escritorio en c#
 * [Python](/InfoIo/PythonAPIClient) - aplicación de consola en Python
+* [R](/InfoIo/RAPIClient) - cliente en R 4.0
