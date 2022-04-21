@@ -64,7 +64,7 @@
             this.txtEndPoint.Name = "txtEndPoint";
             this.txtEndPoint.Size = new System.Drawing.Size(436, 20);
             this.txtEndPoint.TabIndex = 2;
-            this.txtEndPoint.Text = "http://infoio.infoadex.es/infoioapi/v1.1/";
+            this.txtEndPoint.Text = "https://infoio.infoadex.es/infoioapi/v1.2/";
             // 
             // btnVariables
             // 

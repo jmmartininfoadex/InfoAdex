@@ -19,5 +19,5 @@ def getQuery(query, tokenString):
     return requests.post(_url('Query/getQuery'), json=query,  headers={'Authorization': 'Bearer ' + urllib.parse.quote(tokenString, safe='')})
 
 def _url(path):
-    return 'http://infoio.infoadex.es/infoioapi/v1.1/' + path
+    return 'https://infoio.infoadex.es/infoioapi/v1.2/' + path
 
