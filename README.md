@@ -12,5 +12,5 @@ Los ejemplos se facilitan en varios lenguajes:
 * [C#](/InfoIo/WindowsFormsAPIClient) - aplicación de escritorio en c#
 * [Python](/InfoIo/PythonAPIClient) - aplicación de consola en Python
 * [R](/InfoIo/RAPIClient) - cliente en R 4.0
-* [Postman](/InfoIo/API info io - postman.json) - peticiones para probar el API desde [Postman](https://www.postman.com/)
+* [Postman](/InfoIo/Postman) - peticiones para probar el API desde [Postman](https://www.postman.com/)
 
