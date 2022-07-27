@@ -1,0 +1,360 @@
+{
+	"info": {
+		"_postman_id": "f318cb04-af5f-492a-8464-cc603e36480f",
+		"name": "API info io - postman",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14443950"
+	},
+	"item": [
+		{
+			"name": "getAuthToken",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"ApiKey\": \"xxxxxx\",\n\t\"UserName\": \"xxxxxx\",\n\t\"PassWord\": \"xxxxxx\"\n}"
+				},
+				"url": {
+					"raw": "https://infoio.infoadex.es/infoioapi/v1.3/Users/getAuthToken",
+					"protocol": "https",
+					"host": [
+						"infoio",
+						"infoadex",
+						"es"
+					],
+					"path": [
+						"infoioapi",
+						"v1.3",
+						"Users",
+						"getAuthToken"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getVariables",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "xxxxx",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://infoio.infoadex.es/infoioapi/v1.3/Query/getVariables",
+					"protocol": "https",
+					"host": [
+						"infoio",
+						"infoadex",
+						"es"
+					],
+					"path": [
+						"infoioapi",
+						"v1.3",
+						"Query",
+						"getVariables"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getQuery",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "xxxxx",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"QueryType\": \"CONSULTA\",\n\t\"QueryName\": \"xxxxxx\"\n}"
+				},
+				"url": {
+					"raw": "https://infoio.infoadex.es/infoioapi/v1.3/Query/getQuery",
+					"protocol": "https",
+					"host": [
+						"infoio",
+						"infoadex",
+						"es"
+					],
+					"path": [
+						"infoioapi",
+						"v1.3",
+						"Query",
+						"getQuery"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "execute",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "xxxxx",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Name\": \"Mantenimiento NT\",\r\n    \"Options\": {\r\n        \"Consolidated\": false,\r\n        \"Date_From\": \"2021-06-01\",\r\n        \"Date_To\": \"2021-09-12\",\r\n        \"Measures\": {\r\n            \"Inserciones\": true,\r\n            \"InvEstudioInfoadex\": false,\r\n            \"InvTarifa\": false,\r\n            \"Ocupacion\": false\r\n        }\r\n    },\r\n    \"Rows\": [\r\n        {\r\n            \"Group\": \"Grupo Medios\",\r\n            \"VariableName\": \"Soporte 1\"\r\n        },\r\n        {\r\n            \"Group\": \"Otras variables comunes\",\r\n            \"VariableName\": \"Versión\"\r\n        }\r\n    ],\r\n    \"Filter\": [\r\n        {\r\n            \"FilterValues\": [\r\n                \"DIGITAL\"\r\n            ],\r\n            \"Group\": \"Grupo Medios\",\r\n            \"VariableName\": \"Medio\"\r\n        }\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "https://infoio.infoadex.es/infoioapi/v1.3/Query/execute",
+					"protocol": "https",
+					"host": [
+						"infoio",
+						"infoadex",
+						"es"
+					],
+					"path": [
+						"infoioapi",
+						"v1.3",
+						"Query",
+						"execute"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getFilterValues",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "xxxxx",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"FilterValue\": \"limp\",\n    \"Group\": \"Grupo Marcas\",\n    \"VariableName\": \"Producto\"\n}"
+				},
+				"url": {
+					"raw": "https://infoio.infoadex.es/infoioapi/v1.3/Query/getFilterValues",
+					"protocol": "https",
+					"host": [
+						"infoio",
+						"infoadex",
+						"es"
+					],
+					"path": [
+						"infoioapi",
+						"v1.3",
+						"Query",
+						"getFilterValues"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getPonderations",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "xxxxx",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://infoio.infoadex.es/infoioapi/v1.3/Query/getPonderations",
+					"protocol": "https",
+					"host": [
+						"infoio",
+						"infoadex",
+						"es"
+					],
+					"path": [
+						"infoioapi",
+						"v1.3",
+						"Query",
+						"getPonderations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getFile",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://infoio.infoadex.es/infoioapi/v1.3/Creatives/getFile?access_token=xxxxxx&med=xxxxxx&cod=xxxxxx",
+					"protocol": "http",
+					"host": [
+						"infoio",
+						"infoadex",
+						"es"
+					],
+					"path": [
+						"infoioapi",
+						"v1.3",
+						"Creatives",
+						"getFile"
+					],
+					"query": [
+						{
+							"key": "access_token",
+							"value": "xxxxxx"
+						},
+						{
+							"key": "med",
+							"value": "xxxxxx"
+						},
+						{
+							"key": "cod",
+							"value": "xxxxxx"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getFileInfo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://infoio.infoadex.es/infoioapi/v1.3/Creatives/getFileInfo?access_token=xxxxxx&med=xxxxxx&cod=xxxxxx",
+					"protocol": "http",
+					"host": [
+						"infoio",
+						"infoadex",
+						"es"
+					],
+					"path": [
+						"infoioapi",
+						"v1.3",
+						"Creatives",
+						"getFileInfo"
+					],
+					"query": [
+						{
+							"key": "access_token",
+							"value": "xxxxxx"
+						},
+						{
+							"key": "med",
+							"value": "xxxxxx"
+						},
+						{
+							"key": "cod",
+							"value": "xxxxxx"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getContentType",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://infoio.infoadex.es/infoioapi/v1.3/Creatives/GetContentType?access_token=xxxxxx&med=xxxxxx&cod=xxxxxx",
+					"protocol": "https",
+					"host": [
+						"infoio",
+						"infoadex",
+						"es"
+					],
+					"path": [
+						"infoioapi",
+						"v1.3",
+						"Creatives",
+						"GetContentType"
+					],
+					"query": [
+						{
+							"key": "access_token",
+							"value": "xxxxxx"
+						},
+						{
+							"key": "med",
+							"value": "xxxxxx"
+						},
+						{
+							"key": "cod",
+							"value": "xxxxxx"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
